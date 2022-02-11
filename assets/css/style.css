@@ -119,12 +119,12 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    top: 0;
+    top: 0; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-position: 80%;
-    z-index: 9999;
+    z-index: 9999; 
 }
 
 header {

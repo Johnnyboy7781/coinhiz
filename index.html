@@ -1,114 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="stylesheet" href="./assets/css/fav-style.css">
-  <link rel="shortcut icon" href="./assets/img/bitcoin.png" type="image/x-icon">
-  <title>COINHIZ | HOME</title>
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/fav-style.css">
+    <link rel="shortcut icon" href="./assets/img/bitcoin.png" type="image/x-icon">
+    <title>Home | CoinHiz</title>
+  </head>
 
-<body class="bg-green-300">
-  <!-- Nabvar -->
-  <nav class="bg-green-800 text-gray-100">
-    <div class="container mx-auto">
-      <div class="flex flex-wrap justify-between">
-        <div class="flex w-full lg:w-1/2 justify-center lg:justify-start">
-          <h1 class="text-xl font-bold p-3">CoinHiz</h1>
+  <body class="bg-green-300">
+    <!-- Header -->
+    <section>
+      <nav class="bg-green-800 text-gray-100">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap justify-between">
+            <div class="flex w-full lg:w-1/2 justify-center lg:justify-start">
+              <h1 class="text-xl font-bold p-3">CoinHiz</h1>
+            </div>
+            <div class="flex flex-row w-full lg:w-1/2 justify-center lg:justify-end">
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/">HOME</a>
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/atm">ATM</a>
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/favorites">FAVORITES</a>
+            </div>
+          </div>
         </div>
-        <div class="flex flex-row w-full lg:w-1/2 justify-center lg:justify-end">
-          <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/">HOME</a>
-          <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/atm">ATM</a>
-          <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/favorites">FAVORITES</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- End of Nabvar -->
-  <!-- Hero -->
-  <!-- <section class="hero flex justify-center content-center text-gray-100">
-    <div class="flex justify-end items-center w-1/2">
-      <h1 class="hero-title border-r-2 py-7 pr-7 align-middle font-bold">CoinHiz</h1>
-    </div>
-    <div class="flex justify-start items-center w-1/2 text-xl">
-      <h2 class="text-gray-100 hero-h2 pl-7">HOME</h2>
-    </div>
-  </section> -->
-  <!-- End Hero -->
-  <h3 class="lg:flex text-2xl ml-2"> Top Gainers</h3>
-  
-  <div class=" top-gainers md:flex lg:flex flex-row top-row-gainers ">
-  </div>
-  <div class="top-gainers-container">
-  <div class="media-scroller-container">
-    <div class="left-button-container">
-      <p class="left-arrow"><</p>
-    </div>
-    <div class="media-scroller" id="media-scroller"></div>
-    <div class="right-button-container">
-      <p class="right-arrow">></p>
-    </div>
-  </div>
-  </div>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="cards">
-      <span class="close">&times;</span>
-    <div class="symbol">
-      <div class="asset-info">
-        <div class="title">
-          <h1></h1>
-        </div>
-        <div class="details">
-          <h2 class="asset-price" id="Price"></h2>
-        </div>
-      </div>
-      <canvas id="chart"></canvas>
-    </div>
-    </div>
-  </div>
-</div>
-<!--Main class to hold main day data-->
-<main class="break-after-auto container-flud h-screen bg-green-500">
-  <!-- bg-gradient-to-b from-green-200 to-green-500 -->
-  <section class=" md:flex lg:flex flex-row">
-    <div class="flex-wrap">
-      <!--Holds list and form data-->
-      <div class="news bg-gradient-to-b from-green-500 to-green-300">
-        
-         <h2>Crypto News! </h2>
-        <div class= "w-50 crypto-news" id="cityListId"> </div>
-      </div>
-    </div>
-    <div id="md:flex lg:flex"
-      class="coins-holder  bg-green-400">
-      <div class="input-group mb-6"><h3 class="ml-5 mt-3">Filter By Crypto Name</h3>
-        <input name="input-search" id="search" onkeyup="searchCrypto()" placeholder="Coin Name" type="text" autofocus="true" class="form-control ml-5"/>
-      </div>  
-      <div class="cryptos-here bg-green-400" id=""></div>
-    </div>
-  </section>
-  <footer class="header md:flex lg:flex flex-row bg-green-600">
-    <h1>
-       <a href="/">CoinHiz</a>
-    </h1>
-      <nav class=" navigation  ">
-        <!--Unordered list element-->
-      <p class="text-xl">By Chris Waters, </br>Raul Jimenez, </br>Jonathan McDonnell, </br>Garrett Hilberling, </br>Douglas Knowles, & </br>Brady Stafford</p>
       </nav>
+    </section>
+    
+    <!-- Jumbotron -->
+    <section>
+      <!-- Top Gainers -->
+      <h3 class="lg:flex text-2xl ml-2"> Top Gainers</h3>
+      <div class=" top-gainers md:flex lg:flex flex-row top-row-gainers "></div>
+      
+      <!-- Twitter Feed Scroller -->
+      <div class="media-scroller-container">
+        <div class="left-button-container">
+          <p class="left-arrow"><</p>
+        </div>
+        <div class="media-scroller" id="media-scroller"></div>
+        <div class="right-button-container">
+          <p class="right-arrow">></p>
+        </div>
+      </div>
+    </section>
+
+    <!--Main class to hold main day data-->
+    <main class="bg-green-500">
+      <!-- Chart Modal -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="cards">
+            <span class="close">&times;</span>
+            <div class="symbol">
+              <div class="asset-info">
+                <div class="title">
+                  <h1></h1>
+                </div>
+                <div class="details">
+                  <h2 class="asset-price" id="Price"></h2>
+                </div>
+              </div>
+              <canvas id="chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="md:flex lg:flex flex-row">
+        <!-- Crypto News -->
+        <div class="flex-wrap">
+          <div class="news bg-gradient-to-b from-green-500 to-green-300">
+            <h2>Crypto News! </h2>
+            <div class= "w-50 crypto-news"> </div>
+          </div>
+        </div>
+
+        <!-- Coin Search -->
+        <div id="md:flex lg:flex" class="coins-holder  bg-green-400">
+          <div class="input-group mb-6">
+            <h3 class="ml-5 mt-3">Filter By Crypto Name</h3>
+            <input name="input-search" id="search" onkeyup="searchCrypto()" placeholder="Coin Name" type="text" autofocus="true" class="form-control ml-5"/>
+          </div>  
+          <div class="cryptos-here bg-green-400"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="md:flex lg:flex flex-row bg-green-600">
+      <h1>
+        <a href="/">CoinHiz</a>
+      </h1>
+      <p class="text-xl">
+        By Chris Waters, </br>
+        Raul Jimenez, </br>
+        Jonathan McDonnell, </br>
+        Garrett Hilberling, </br>
+        Douglas Knowles, & </br>
+        Brady Stafford
+      </p>
     </footer>
-</main>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-<script src="./assets/js/script.js"></script>
-</body>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
