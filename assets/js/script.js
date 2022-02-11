@@ -4,7 +4,6 @@ var crytposHere = document.querySelector(".cryptos-here");
 var tbl = document.querySelector(".table");
 var cryptoNews = document.querySelector(".crypto-news");
 var topGainers = document.querySelector(".top-gainers");
-// Modal Els
 var modal = document.getElementById("myModal");
 var modalContent = document.querySelector(".modals");
 var closeBtn = document.getElementById("closeBtn");
