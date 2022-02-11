@@ -1,16 +1,33 @@
-# Coinhiz
-House for Crypto Coins showing a coin's market supply vs how many coins have been mined.  How fast coins are being mined and the price index for each coin.
+# CoinHiz 💰
 
-## Built off of HTML, CSS, Javascript, JQuery
-Built off HTML, CSS, Javascript, Jquery and Tailwinds for CSS.
+## Purpose
+A website for aggregating data on cryptocurrencies. Search coins, favorite coins, see crypto news and social media feeds, and find the nearest cryptocurrency ATM all in one easy-to-use website.
 
-### Live Link
-https://waters000.github.io/coinhiz/
+![Screenshot](assets/img/screenshot.PNG)
 
-#### Who is this for?
-Anyone interested in the fascinating world of Crypto can use this as a guide to find the top coins, how many are in productions and how many are still left to be mined?
+## Built With
+* HTML
+* CSS
+* Javascript
+* jQuery
+* LocalStorage
+* Chart.js
+* Tailwind.css
+* CoinLore API
+* CoinPaprika API
+* Google Maps API
+* CrpytoPulse API
+* CryptoCurrency-Markets API
+* CryptoCompare API
 
-##### How to use?
-Find the top coin gainer for the past 24 hours, latest twitter feed postings, info with chart on top 100 coins.  
+## Website
+https://johnnyboy7781.github.io/coinhiz/
 
-![Screenshot 2022-02-10 140025](https://user-images.githubusercontent.com/94644749/153478151-a308b75a-92ce-47db-a80e-01d837f19280.png)
+## Contribution
+Made with ❤️ by :
+* Jonathan McDonnell
+* Chris Waters
+* Brady Stafford
+* Douglas Knowles
+* Garret Hilberling
+* Raul Jimenez
