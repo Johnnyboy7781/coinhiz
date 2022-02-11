@@ -1,29 +1,18 @@
-// Create DOM elements from IDs and Class
+// DOM Elements
 var hotCryptos = document.querySelector(".hot-cryptos");
 var crytposHere = document.querySelector(".cryptos-here");
 var tbl = document.querySelector(".table");
 var cryptoNews = document.querySelector(".crypto-news");
 var topGainers = document.querySelector(".top-gainers");
+// Modal Els
+var modal = document.getElementById("myModal");
 var modalContent = document.querySelector(".modals");
+var closeBtn = document.getElementById("closeBtn");
 
 var storeCryptoArray = [];
-
-var modal = document.getElementById("myModal");
-var closeBtn = document.getElementById("closeBtn");
-const coinsToSearchTweetsFor = "btc-bitcoin";
 var cryptoList = [];
-// set up variables for functions.
 var id;
-
-// Create DOM elements from IDs and Class
-var scrollEl = document.querySelector("#media-scroller");
-var scrollContainerEl = document.querySelector(".media-scroller-container");
-var apiUrl = `https://api.coinpaprika.com/v1/coins/${coinsToSearchTweetsFor}/twitter`;
-
-// set up variables for functions.
 var crypto;
-let scrollInterval;
-let initialScroll = false;
 
 function createCryptoEl(response) {
   ///div holder to hold everything
@@ -535,167 +524,6 @@ if (
   window.location.pathname === "/coinhiz/" ||
   window.location.pathname === "/coinhiz/index.html"
 ) {
-  const truncateTweetStatus = (status) => {
-    if (status.length > 175) {
-      let newStatus = status.substring(0, 175);
-      newStatus += "...";
-
-      status = newStatus;
-    }
-
-    return status;
-  };
-
-  const redirectToTweetSource = (src) => {
-    window.open(src, "_blank");
-  };
-
-  const populateMediaScroller = (twitterRes) => {
-    for (let i = 0; i < twitterRes.length; i++) {
-      let mediaItemEl = document.createElement("div");
-      mediaItemEl.setAttribute("data-tweet-source", twitterRes[i].status_link);
-      // mediaItemEl.setAttribute("onclick", "test(mediaItemEl.getAttribute('data-tweet-source))");
-      mediaItemEl.className = "media-item";
-
-      let userInfoEl = document.createElement("div");
-      userInfoEl.className = "user-info";
-
-      let userImgEl = document.createElement("img");
-      userImgEl.className = "userImg";
-      userImgEl.setAttribute("src", twitterRes[i].user_image_link);
-      userInfoEl.append(userImgEl);
-
-      let textContainerEl = document.createElement("div");
-      textContainerEl.className = "text-container";
-
-      let usernameEl = document.createElement("p");
-      usernameEl.className = "username";
-      usernameEl.innerHTML = twitterRes[i].user_name;
-      textContainerEl.append(usernameEl);
-
-      let handleEl = document.createElement("p");
-      handleEl.className = "handle";
-      handleEl.innerHTML = "@" + twitterRes[i].user_name;
-      // textContainerEl.append(handleEl);
-
-      userInfoEl.append(textContainerEl);
-      mediaItemEl.append(userInfoEl);
-
-      let tweetContentEl = document.createElement("div");
-      tweetContentEl.className = "tweet-content";
-
-      let tweetTextEl = document.createElement("p");
-      tweetTextEl.className = "tweet-text";
-      tweetTextEl.innerHTML = truncateTweetStatus(twitterRes[i].status);
-      tweetContentEl.append(tweetTextEl);
-
-      mediaItemEl.append(tweetContentEl);
-
-      scrollEl.append(mediaItemEl);
-    }
-  };
-
-  // START MEDIA SCROLLER LOGIC
-  const startScroll = () => {
-    scrollInterval = setInterval(function () {
-      // If at the end of the list, scroll to start
-      if (scrollEl.scrollLeft >= -10) {
-        scrollEl.scrollTo({
-          left: -100000, // Dummy value so that it always scrolls back to start
-          behavior: "smooth",
-        });
-      } else {
-        scrollEl.scrollTo({
-          left: scrollEl.scrollLeft + 250, // Increment scroll
-          behavior: "smooth",
-        });
-      }
-    }, 5000);
-  };
-
-  const scrollIntervalHandler = (start, pause) => {
-    if (start) {
-      startScroll();
-    } else if (pause) {
-      clearInterval(scrollInterval);
-      startScroll();
-    }
-  };
-
-  const scrollButtonHandler = (event) => {
-    let targetEl = event.target;
-
-    if (
-      targetEl.className === "left-button-container" ||
-      targetEl.className === "left-arrow"
-    ) {
-      scrollIntervalHandler(false, true);
-      scrollEl.scrollTo({
-        left: scrollEl.scrollLeft - 250,
-        behavior: "smooth",
-      });
-    } else if (
-      targetEl.className === "right-button-container" ||
-      targetEl.className === "right-arrow"
-    ) {
-      scrollIntervalHandler(false, true); // Restart timer
-      if (scrollEl.scrollLeft >= -10) {
-        scrollEl.scrollTo({
-          left: -100000,
-          behavior: "smooth",
-        });
-      } else {
-        scrollEl.scrollTo({
-          left: scrollEl.scrollLeft + 250,
-          behavior: "smooth",
-        });
-      }
-    }
-  };
-  // END MEDIA SCROLLER LOGIC
-
-  async function getTweets() {
-    fetch(apiUrl).then((response) => {
-      if (response.ok) {
-        response.json().then((data) => {
-          populateMediaScroller(data);
-        });
-      }
-    });
-  }
-
-  const tweetClickHandler = (event) => {
-    let targetEl = event.target;
-
-    // TODO: Refactor this, this sucks
-    if (
-      targetEl.className === "media-item" ||
-      targetEl.className === "username" ||
-      targetEl.className === "handle" ||
-      targetEl.className === "userImg" ||
-      targetEl.className === "tweet-text"
-    ) {
-      if (targetEl.className !== "media-item") {
-        targetEl = targetEl.closest(".media-item");
-      }
-      redirectToTweetSource(targetEl.getAttribute("data-tweet-source"));
-    }
-  };
-
-  setTimeout(() => {
-    scrollEl.scrollTo({
-      left: -100000,
-      behavior: "smooth",
-    });
-
-    scrollIntervalHandler(true, false);
-  }, 500);
-  
-
-  getTweets(); 
-  scrollEl.addEventListener("click", tweetClickHandler);
-  scrollContainerEl.addEventListener("click", scrollButtonHandler);
-
   function genCryptoNameArr(response) {
     for (var i = 0; i < response.data.length; i++) {
       var namePush = response.data[i].name;
