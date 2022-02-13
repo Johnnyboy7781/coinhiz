@@ -3,6 +3,7 @@ var scrollEl = document.querySelector("#media-scroller");
 var scrollContainerEl = document.querySelector(".media-scroller-container");
 
 let scrollInterval;
+let allowScroll = true;
 const coinsToSearchTweetsFor = "btc-bitcoin";
 const apiUrl = `https://api.coinpaprika.com/v1/coins/${coinsToSearchTweetsFor}/twitter`;
 
@@ -91,6 +92,10 @@ const scrollIntervalHandler = (start, pause) => {
 const scrollButtonHandler = (event) => { // Scroll media by 270px in direction of button press
     let targetEl = event.target;
 
+    if (!allowScroll) {
+        return;
+    }
+
     if (targetEl.className === "left-button-container" || targetEl.className === "left-arrow") {
         scrollIntervalHandler(false, true); // Pause scroll interval
         scrollEl.scrollTo({
@@ -111,6 +116,9 @@ const scrollButtonHandler = (event) => { // Scroll media by 270px in direction o
             });
         }
     }
+
+    allowScroll = false;
+    setTimeout(() => allowScroll = true, 500);
 };
 // END MEDIA SCROLLER LOGIC
 

@@ -512,7 +512,6 @@ window.onclick = function (event) {
   }
 };
 
-// start screen by running cityList to show previous storage cities
 getCrypto();
 
 if (
