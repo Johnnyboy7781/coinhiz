@@ -13,6 +13,39 @@ var cryptoList = [];
 var id;
 var crypto;
 
+const shortenLongNum = num => {
+  num = num + "";
+  let suffix;
+  let temp = "";
+  
+  for (let i = num.length - 1; i >= 0; i--) { // reverese num
+    temp += num[i];
+  }
+
+  if ([4, 5, 6].includes(num.length)) { // In the thousands
+    temp = temp.substring(3);
+    suffix = "K";
+  } else if ([7, 8, 9].includes(num.length)) {
+    temp = temp.substring(6);
+    suffix = "M";
+  } else if ([10, 11, 12].includes(num.length)) {
+    temp = temp.substring(9);
+    suffix = "B";
+  } else if ([13, 14, 15].includes(num.length)) {
+    temp = temp.substring(12);
+    suffix = "T";
+  }
+
+  num = "";
+  for (let i = temp.length - 1; i >= 0; i--) { // re reverse
+    num += temp[i];
+  }
+
+  if (suffix) num += suffix;
+
+  return num;
+}
+
 function createCryptoEl(response) {
   ///div holder to hold everything
   var hotCryptoDivHolder = document.createElement("div");
@@ -56,11 +89,10 @@ function createCryptoEl(response) {
 
   var cryptoSupply = document.createElement("p");
   cryptoSupply.classList = "";
-  var cryptoSupplyInt;
-  cryptoSupplyInt = response.csupply;
+  let cryptoSupplyInt = shortenLongNum(response.csupply);
   cryptoSupply.innerHTML =
     "Current Mined Supply <span class='font-semibold'>" +
-    parseInt(response.csupply).toLocaleString("en-US") + "</span>";
+    shortenLongNum(response.csupply) + "</span>";
 
   holderTwo.append(cryptoSupply);
 
