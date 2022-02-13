@@ -499,6 +499,19 @@ h2 {
     transform: translateX(-10px);
 }
 
+@media (hover: none) {
+    .right-button-container,
+    .left-button-container {
+        transform: translateX(0px);
+        padding: 5px;
+    }
+
+    .right-button-container:hover,
+    .left-button-container:hover {
+        transform: translateX(0px);
+    }
+}
+
 p {
     color: black;
 }
