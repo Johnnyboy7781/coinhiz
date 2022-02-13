@@ -9,7 +9,7 @@
     background-color: white;
     border-radius: 5px;
     columns: auto;
-   
+    border-radius: 10px;
     margin: 20px;
 }
 
@@ -41,13 +41,33 @@
     min-width: 50%;
 }
 
+.crypto-news-div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.crypto-news-div > * {
+    padding-bottom: 5px;
+}
+
+.crypto-news-div h5 {
+    line-height: 1.5;
+}
+
+.crypto-news-div img {
+    align-self: center;
+}
+
+.crypto-news-div p {
+    color: rgb(63, 63, 63);
+}
+
 .holdertwo {
     flex-wrap: wrap;
     background-color: white;
     padding-right:1em;
     width: auto;
-    width: auto;
-   
 }
 
 .holderThree {
@@ -55,14 +75,12 @@
     background-color: white;
     padding-right:1em;
     width: auto;
-   
 }
 
 .holderFour {
     padding-right:1em;
     background-color: white;
     width: auto;
-   
 }
 
 .holderFive {
@@ -75,17 +93,23 @@
     padding-right:1em;
     background-color: white;
     width: auto;
+    border-radius: 10px;
 }
 
+.crypto-info-div {
+    padding: 0 10px;
+}
+
+.market-data-button {
+    font-size: 15px;
+    margin: 10px;
+}
 
 .cryptoheader {
     background-color: white;
     width: 90%;
-    
+    font-size: 30px;
 }
-
-
-
 
 .holder {
     background-color: black;
@@ -429,33 +453,25 @@ h2 {
 .right-button-container {
     display: flex;
     align-items: center;
-    background-color: burlywood;
+    background-color: #377e22;
+    color: white;
     padding: 15px;
     border-radius: 10px;
     margin: 5px;
     z-index: 0;
     transition: 400ms;
-}
-/* .button-chart {
-    background-color: yellow;
-    color: black;
-    border-radius: 25px;
-    padding: 5px;
-   border: 3px solid rgb(0, 0, 0);
-   flex-wrap: flex;
-
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.button-chart:hover {
-    background-color: rgb(0, 148, 62);
-    border-radius: 25px;
-    padding: 5px;
+.left-button-container p,
+.right-button-container p {
     color: white;
-   border: 3px solid rgb(255, 255, 255);
-   flex-wrap: flex;
+}
 
-} */
-
+.rank-class {
+    border-radius: 10px;
+}
 
 .rank-class-header p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -487,22 +503,34 @@ p {
     color: black;
 }
 
+.form-control {
+    border-radius: 5px;
+    padding: 4px;
+    margin-top: 5px;
+}
+
 .top-coins {
     border: 1px solid #14532d;
-    width: 100%;
+    min-width: 180px;
     background-color: #bbf7d0;
     justify-content: space-between;
     border-radius: 10px;
-    padding: 5px 5px;
+    padding: 5px;
+    margin: 5px;
     flex-wrap: wrap;
     text-align: center;
 }
 
 .top-coins h6 {
     background-color: green;
+    color: white;
 }
 
-
+.top-gainers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /*Media query for mobile phones and smaller */
 @media screen and (max-width: 770px) {
@@ -512,12 +540,6 @@ p {
         columns: auto;
         width: fit-content;
         width: 100%;
-    }
-    .cryptoheader {
-        background-color: white;
-        width: 90%;
-        font-size: 30px;
-        
     }
 
     .news {

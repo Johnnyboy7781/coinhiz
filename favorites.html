@@ -11,7 +11,7 @@
       <title>Favorites | CoinHiz</title>
   </head>
 
-  <body>
+  <body class="fav-body">
     <!-- Nabvar -->
     <nav class="bg-green-800 text-gray-100">
       <div class="container mx-auto">
@@ -19,28 +19,28 @@
           <div class="flex w-full lg:w-1/2 justify-center lg:justify-start">
             <h1 class="text-xl font-bold p-3">CoinHiz</h1>
           </div>
-          <div class="flex flex-row w-full lg:w-1/2 justify-center lg:justify-end">
-            <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/">HOME</a>
-            <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/atm">ATM</a>
-            <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/favorites">FAVORITES</a>
+          <div class="flex flex-row w-full lg:w-1/2 justify-center lg:justify-end nav-links">
+            <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/">HOME</a>
+            <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/atm">ATM</a>
+            <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/favorites">FAVORITES</a>
           </div>
         </div>
       </div>
     </nav>
     
     <!-- Hero -->
-    <section class="hero flex justify-center content-center text-gray-100">
-      <div class="flex justify-end items-center w-1/2">
-        <h1 class="hero-title border-r-2 py-7 pr-7 align-middle font-bold">CoinHiz</h1>
+    <section class="hero">
+      <div class="site-title">
+        <h1>CoinHiz</h1>
       </div>
-      <div class="flex justify-start items-center w-1/2 text-xl">
-        <h2 class="text-gray-100 hero-h2 pl-7">FAVORITES</h2>
+      <div class="page-title">
+        <h1>FAVORITES</h1>
       </div>
     </section>
     
 
     <!-- Favorites -->
-    <section>
+    <section class="fav-coin-container">
         <div class="d-flex flex-column align-items-center">
             <div class="col-12 col-md-8 p-2">
                 <h2 class="p-3 text-center border-bottom fw-bold">My Favorite Coins</h2>
@@ -51,7 +51,7 @@
     </section>
     
     <!--footer-->
-    <footer class="bg-dark mt-5 text-muted d-flex justify-content-center align-items-center">
+    <footer class="bg-dark mt-5 text-muted d-flex justify-content-center align-items-center fav-footer">
         <div class="col-10 text-center py-4">
             <!-- copyright-->
             <p>Copyright © 2022 CoinHiz. All rights reserved.</p>

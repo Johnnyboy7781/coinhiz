@@ -14,6 +14,7 @@
 .hero {
     display: flex;
     justify-content: center;
+    align-items: center;
     background:
         linear-gradient(rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)),
@@ -25,10 +26,68 @@
 .hero-title {
     font-size: 2rem;
 }
+
+.page-title,
+.site-title {
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.site-title {
+    border-right: 2px solid white;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.fav-coin-text-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.fav-coin-text-container > * {
+    padding: 0 7px;
+}
+
+@media screen and (max-width: 350px) {
+    .site-title > *,
+    .page-title > * {
+        font-size: 8vw;
+    }
+
+    .nav-links > * {
+        font-size: 4vw;
+    }
+}
+
 .hero h2{
     font-size: x-large;
 }
 
+.fav-footer {
+    bottom: 0;
+    width: 100%;
+    position: sticky;
+}
+
+.fav-coin {
+    width: 95%;
+}
+
+#fav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fav-coin div {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* star size and position */
 .star{

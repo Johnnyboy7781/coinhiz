@@ -37,14 +37,10 @@ function createCryptoEl(response) {
   crytpoName.classList = "cryptoheader flex flex-row";
   crytpoName.textContent = response.name;
 
-  var rank = document.createElement("p");
-  rank.classList = "rank-class ";
-  rank.textContent = "Rank: " + response.rank;
-
-  hotCryptoHeader.append(cryptoFave, crytpoName, rank);
+  hotCryptoHeader.append(cryptoFave, crytpoName);
 
   var hotCryptoElementsHolder = document.createElement("div");
-  hotCryptoElementsHolder.classList = "flex flex-row";
+  hotCryptoElementsHolder.classList = "flex flex-row flex-wrap crypto-info-div";
 
   var holderOne = document.createElement("div");
   holderOne.classList = "holderone";
@@ -116,8 +112,8 @@ function createCryptoEl(response) {
   holderSix.classList = "holderSix";
 
   var cryptoButton = document.createElement("button");
-  cryptoButton.innerText = `${response.name} Chart`;
-  cryptoButton.classList = "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded focus:outline-none click:mt-2";
+  cryptoButton.innerText = `Market Data`;
+  cryptoButton.classList = "bg-green-600 hover:bg-green-400 text-white py-2 px-4 border-b-4 border-green-700 hover:border-green-500 rounded hover:text-black focus:outline-none transition click:mt-2 market-data-button";
   cryptoButton.setAttribute("symbol", response.symbol);
   cryptoButton.addEventListener("click", modalHandler);
   holderSix.append(cryptoButton);
@@ -127,10 +123,9 @@ function createCryptoEl(response) {
     holderThree,
     holderFour,
     holderFive,
-    holderSix
   );
 
-  hotCryptoDivHolder.append(hotCryptoHeader, hotCryptoElementsHolder);
+  hotCryptoDivHolder.append(hotCryptoHeader, hotCryptoElementsHolder, holderSix);
   crytposHere.append(hotCryptoDivHolder);
 }
 
@@ -168,8 +163,10 @@ var getCrypto = function () {
   });
 
   var createTopGainerEl = function (response) {
+    let cryptoNewsDiv = document.createElement("div");
+    cryptoNewsDiv.className = "crypto-news-div";
+
     var cryptoHeadline = document.createElement("h5");
-    cryptoHeadline.classList = "";
     cryptoHeadline.textContent = response.description;
 
     var cryptoImageLink = document.createElement("img");
@@ -177,10 +174,11 @@ var getCrypto = function () {
     cryptoImageLink.classList = "image-size";
 
     var provider = document.createElement("p");
-    provider.classList = "";
     provider.textContent = response.source;
 
-    cryptoNews.append(cryptoHeadline, provider, cryptoImageLink);
+    cryptoNewsDiv.append(cryptoHeadline, provider, cryptoImageLink)
+
+    cryptoNews.append(cryptoNewsDiv);
   };
 
   const cryptoPulse = {
@@ -277,7 +275,7 @@ function createFavEl() {
       if (storeCryptoArray[i].id === cryptoList.data[j].name) {
         var cryptoDiv = document.createElement("div");
         cryptoDiv.classList =
-          "my-3 border rounded shadow p-3 position-relative";
+          "my-3 border rounded shadow p-3 position-relative fav-coin";
         var star = document.createElement("img");
         star.classList = "star position-absolute";
         star.src = "./assets/img/favorite.png";
@@ -285,27 +283,27 @@ function createFavEl() {
         h3.classList = "border-bottom fw-bold pb-2";
         h3.textContent = cryptoList.data[j].name;
         var row = document.createElement("div");
-        row.classList = "row pt-3 px-3";
+        row.classList = "fav-coin-text-container";
         var items = document.createElement("div");
-        items.classList = "items col-6 col-lg-3";
+        items.classList = "items";
         var p = document.createElement("p");
         p.textContent = "Mined Supply: " + cryptoList.data[j].csupply;
         items.append(p);
         row.append(items);
         var items = document.createElement("div");
-        items.classList = "items col-6 col-lg-3";
+        items.classList = "items";
         var p = document.createElement("p");
         p.textContent = "Total Supply: " + cryptoList.data[j].msupply;
         items.append(p);
         row.append(items);
         var items = document.createElement("div");
-        items.classList = "items col-6 col-lg-3";
+        items.classList = "items";
         var p = document.createElement("p");
         p.textContent = "Price: $" + cryptoList.data[j].price_usd;
         items.append(p);
         row.append(items);
         var items = document.createElement("div");
-        items.classList = "items col-6 col-lg-3";
+        items.classList = "items";
         var p = document.createElement("p");
         p.textContent = "Percent Mined: " + parseInt((cryptoList.data[j].csupply / cryptoList.data[j].msupply) * 100) + "%";
         items.append(p);

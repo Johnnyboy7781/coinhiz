@@ -23,9 +23,9 @@
               <h1 class="text-xl font-bold p-3">CoinHiz</h1>
             </div>
             <div class="flex flex-row w-full lg:w-1/2 justify-center lg:justify-end">
-              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/">HOME</a>
-              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/atm">ATM</a>
-              <a class="p-3 hover:bg-gray-100 hover:text-gray-700" href="/coinhiz/favorites">FAVORITES</a>
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/">HOME</a>
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/atm">ATM</a>
+              <a class="p-3 hover:bg-gray-100 hover:text-gray-700 transition" href="/coinhiz/favorites">FAVORITES</a>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
     <section>
       <!-- Top Gainers -->
       <h3 class="lg:flex text-2xl ml-2"> Top Gainers</h3>
-      <div class=" top-gainers md:flex lg:flex flex-row top-row-gainers "></div>
+      <div class=" top-gainers flex flex-row top-row-gainers "></div>
       
       <!-- Twitter Feed Scroller -->
       <div class="media-scroller-container">
@@ -84,7 +84,7 @@
         <!-- Coin Search -->
         <div id="md:flex lg:flex" class="coins-holder  bg-green-400">
           <div class="input-group mb-6">
-            <h3 class="ml-5 mt-3">Filter By Crypto Name</h3>
+            <h3 class="ml-5 pt-3">Search By Crypto Name</h3>
             <input name="input-search" id="search" onkeyup="searchCrypto()" placeholder="Coin Name" type="text" autofocus="true" class="form-control ml-5"/>
           </div>  
           <div class="cryptos-here bg-green-400"></div>
